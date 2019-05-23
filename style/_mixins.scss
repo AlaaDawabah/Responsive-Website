@@ -1,0 +1,66 @@
+@mixin borderBottom($width,$Border,$align,$paddingBottom){
+    @extend %borderBottomConstants; 
+    width:$width;
+    border-bottom:$Border;
+    margin: $align;
+    padding-bottom: $paddingBottom;
+   
+   }
+   
+   
+   
+   %borderBottomConstants{
+       content:" ";
+       display: block;
+   }
+
+
+%sectionsContent{
+    h4{
+        font-weight: 600;
+        color:$grayColor;
+        padding-bottom: 15px;
+        font-family: KaushanScript-Regular;
+    }
+    h3{
+        font-weight: bolder;
+        color:$primaryColor;
+        padding-bottom: 30px;
+        font-family: Montserrat-Bold;
+        &::after{
+            @include borderBottom(5% , 3px solid $primaryColor, 0 auto,20px);
+        }
+    }
+    h5{
+        font-weight:200;
+        color:$grayColor;
+        padding-bottom: 45px;
+        font-family:  Montserrat-Regular;
+        // font-style: italic;
+    }
+}
+
+%padding{
+    padding:60px 0;
+}
+
+%margin{
+    margin-bottom: 60px;
+}
+
+@mixin Icon($color,$width,$height){
+    color:$color;
+    width:$width;
+    height: $height;
+}
+@mixin backgroundImage($url){
+    background-image: $url;
+    @extend %imageCover;
+}
+@mixin padding($paddingBottom,$paddingTop){
+    padding-bottom: $paddingBottom;
+    padding-top: $paddingTop;
+}
+%imageCover{
+    background-size: cover;
+}
